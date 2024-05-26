@@ -13,9 +13,9 @@ export class HttpsAndCorsMiddleware implements NestMiddleware {
     const origin = req.headers.origin;
 
     // Allow requests without origin header (e.g., from Postman)
-    if (!origin) {
-      return next();
-    }
+    // if (!origin) {
+    //   return next();
+    // }
 
     if (
       !origin ||
