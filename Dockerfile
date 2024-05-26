@@ -19,8 +19,8 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY --chown=node:node . .
 
-# # Generate Prisma client
-# RUN npx prisma generate
+# Generate Prisma client
+RUN npx prisma generate
 
 # # Deploy Prisma client
 # RUN npx prisma migrate deploy
