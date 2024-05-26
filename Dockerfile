@@ -35,7 +35,7 @@ RUN npm run build
 RUN ls -al /app/dist
 
 # Expose the port the app runs on
-EXPOSE 4000
+EXPOSE 5510
 
 # Print the contents of the dist directory and start the application
 CMD ls -al /app/dist && npm run start:prod
