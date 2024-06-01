@@ -695,7 +695,12 @@
   resolved "https://registry.npmjs.org/@microsoft/tsdoc/-/tsdoc-0.14.2.tgz"
   integrity sha512-9b8mPpKrfeGRuhFH5iO1iwCLeIIsV6+H1sRfxbkoGXIyQE2BTsPd9zqSqQJ+pv5sJ/hT5M1zvOFL02MnEezFug==
 
-"@nestjs/cli@^10.0.0":
+"@nestjs/cache-manager@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npmjs.org/@nestjs/cache-manager/-/cache-manager-2.2.2.tgz"
+  integrity sha512-+n7rpU1QABeW2WV17Dl1vZCG3vWjJU1MaamWgZvbGxYE9EeCM0lVLfw3z7acgDTNwOy+K68xuQPoIMxD0bhjlA==
+
+"@nestjs/cli@^10.3.2":
   version "10.3.2"
   resolved "https://registry.npmjs.org/@nestjs/cli/-/cli-10.3.2.tgz"
   integrity sha512-aWmD1GLluWrbuC4a1Iz/XBk5p74Uj6nIVZj6Ov03JbTfgtWqGFLtXuMetvzMiHxfrHehx/myt2iKAPRhKdZvTg==
@@ -723,7 +728,7 @@
     webpack "5.90.1"
     webpack-node-externals "3.0.0"
 
-"@nestjs/common@^10.0.0", "@nestjs/common@^8.0.0 || ^9.0.0 || ^10.0.0", "@nestjs/common@^9.0.0 || ^10.0.0":
+"@nestjs/common@^10.0.0", "@nestjs/common@^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0", "@nestjs/common@^8.0.0 || ^9.0.0 || ^10.0.0", "@nestjs/common@^9.0.0 || ^10.0.0":
   version "10.3.8"
   resolved "https://registry.npmjs.org/@nestjs/common/-/common-10.3.8.tgz"
   integrity sha512-P+vPEIvqx2e+fonsYVlFXKvoChyJ8Tq+lfpqdVFqblovHbFr3kZ/nYX0cPs+XuW6bnRT8tz0SSR9XBGU43kJhw==
@@ -732,7 +737,7 @@
     tslib "2.6.2"
     uid "2.0.2"
 
-"@nestjs/core@^10.0.0", "@nestjs/core@^9.0.0 || ^10.0.0":
+"@nestjs/core@^10.0.0", "@nestjs/core@^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0", "@nestjs/core@^9.0.0 || ^10.0.0":
   version "10.3.8"
   resolved "https://registry.npmjs.org/@nestjs/core/-/core-10.3.8.tgz"
   integrity sha512-AxF4tpYLDNn5Wfb3C4bNaaHJ4pREH5FJrSisR2A5zkYpQFORFs0Tc36lOFPMwBTy8Iv2wUwWLUVc5ftBnxEv4w==
@@ -802,6 +807,11 @@
   integrity sha512-hpX9das2TdFTKQ4/2ojhjI6YgXtCfXRKui3A4Qaj54VVzc5+mtK502Jj18Vzji98o9MVS6skmYu+S/UvW3U6Fw==
   dependencies:
     tslib "2.6.2"
+
+"@nestjs/throttler@^5.1.2":
+  version "5.1.2"
+  resolved "https://registry.npmjs.org/@nestjs/throttler/-/throttler-5.1.2.tgz"
+  integrity sha512-60MqhSLYUqWOgc38P6C6f76JIpf6mVjly7gpuPBCKtVd0p5e8Fq855j7bJuO4/v25vgaOo1OdVs0U1qtgYioGw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1760,6 +1770,16 @@ bytes@3.1.2:
   resolved "https://registry.npmjs.org/bytes/-/bytes-3.1.2.tgz"
   integrity sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==
 
+cache-manager@^5.5.3, cache-manager@<=5:
+  version "5.5.3"
+  resolved "https://registry.npmjs.org/cache-manager/-/cache-manager-5.5.3.tgz"
+  integrity sha512-Td6F8lZE/YCciSi8xmdBjur6zlKIcoLMZp9jTmJNc44DrXIIcEhr9gra5j1T7RRbtWHaG5tJMEBKS+0S1+T2NQ==
+  dependencies:
+    eventemitter3 "^5.0.1"
+    lodash.clonedeep "^4.5.0"
+    lru-cache "^10.2.2"
+    promise-coalesce "^1.1.2"
+
 call-bind@^1.0.7:
   version "1.0.7"
   resolved "https://registry.npmjs.org/call-bind/-/call-bind-1.0.7.tgz"
@@ -2442,6 +2462,11 @@ etag@~1.8.1:
   version "1.8.1"
   resolved "https://registry.npmjs.org/etag/-/etag-1.8.1.tgz"
   integrity sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==
+
+eventemitter3@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.npmjs.org/eventemitter3/-/eventemitter3-5.0.1.tgz"
+  integrity sha512-GWkBvjiSZK87ELrYOSESUYeVIc9mvLLf/nXalMOS5dYrgZq9o5OVkbZAVM06CVxYsCwH9BDZFPlQTlPA1j4ahA==
 
 events@^3.2.0:
   version "3.3.0"
@@ -3734,6 +3759,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
+  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
+
 lodash.includes@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/lodash.includes/-/lodash.includes-4.3.0.tgz"
@@ -3792,7 +3822,7 @@ log-symbols@^4.1.0:
     chalk "^4.1.0"
     is-unicode-supported "^0.1.0"
 
-lru-cache@^10.2.0:
+lru-cache@^10.2.0, lru-cache@^10.2.2:
   version "10.2.2"
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-10.2.2.tgz"
   integrity sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==
@@ -4360,6 +4390,11 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
+promise-coalesce@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/promise-coalesce/-/promise-coalesce-1.1.2.tgz"
+  integrity sha512-zLaJ9b8hnC564fnJH6NFSOGZYYdzrAJn2JUUIwzoQb32fG2QAakpDNM+CZo1km6keXkRXRM+hml1BFAPVnPkxg==
+
 prompts@^2.0.1:
   version "2.4.2"
   resolved "https://registry.npmjs.org/prompts/-/prompts-2.4.2.tgz"
@@ -4445,16 +4480,7 @@ readable-stream@^2.2.2:
     string_decoder "~1.1.1"
     util-deprecate "~1.0.1"
 
-readable-stream@^3.4.0:
-  version "3.6.2"
-  resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz"
-  integrity sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==
-  dependencies:
-    inherits "^2.0.3"
-    string_decoder "^1.1.1"
-    util-deprecate "^1.0.1"
-
-readable-stream@^3.6.0:
+readable-stream@^3.4.0, readable-stream@^3.6.0:
   version "3.6.2"
   resolved "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz"
   integrity sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==
@@ -4477,7 +4503,7 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-"reflect-metadata@^0.1.12 || ^0.2.0", reflect-metadata@^0.2.0:
+"reflect-metadata@^0.1.12 || ^0.2.0", "reflect-metadata@^0.1.13 || ^0.2.0", reflect-metadata@^0.2.0:
   version "0.2.2"
   resolved "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.2.2.tgz"
   integrity sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==
@@ -4572,7 +4598,7 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-rxjs@^7.1.0, rxjs@^7.5.5, rxjs@^7.8.1, rxjs@7.8.1:
+rxjs@^7.0.0, rxjs@^7.1.0, rxjs@^7.5.5, rxjs@^7.8.1, rxjs@7.8.1:
   version "7.8.1"
   resolved "https://registry.npmjs.org/rxjs/-/rxjs-7.8.1.tgz"
   integrity sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==
