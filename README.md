@@ -1,74 +1,90 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Test Platform Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+### 1. Install dependencies
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
-```bash
-$ yarn install
+```
+npm install
 ```
 
-## Running the app
+### 2. Setup env variables.
 
-```bash
-# development
-$ yarn run start
+Setup .env following .env.example structure.
 
-# watch mode
-$ yarn run start:dev
 
-# production mode
-$ yarn run start:prod
+### 3. Install PostgreSQL Database
+
+**Download the PostgreSQL Docker Image**
+Prerequisite: Docker installed and running on your local dev machine.
+
 ```
 
-## Test
+docker pull postgres
 
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
 ```
 
-## Support
+**Run the Docker Container by itself**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```console
+docker run --name localNestDb -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=12345678x@X -e POSTGRES_DB=localNestDb -d postgres
+```
 
-## Stay in touch
+### 4. Add Database URL to Prisma configuration
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```
+echo DATABASE_URL=postgresql://postgres:12345678x@X@0.0.0.0:5466/localTfDB > ./env
+```
 
-## License
+### 5. Create the Database Schema
 
-Nest is [MIT licensed](LICENSE).
-# nestjs-template
+```
+npx prisma db push
+```
+
+### 6. View the Database Records
+
+```
+npx prisma studio
+```
+
+### 7. Connecting DBeaver (or other SQL Client) to your docker postgresDB
+
+TODO: Add instructions about using a proxy to connect to the DB (not implemented yet in AWS)
+
+Create a new connection with the following inputs:
+
+- **Host** = localhost
+- **Port** = 5432 (or the same as the port you used in the docker run command)
+- **Database** = localTfDB (or the same as the database name you used in the docker run command)
+- **Username** = postgres
+- **Password** = 12345678x@X
+
+Test the connection, then finish.
+
+### 8. Start the API locally
+
+Start the server with nodemon so you have hot reload.
+
+```
+
+npm run dev
+
+```
+
+_Be default the server starts on port 3000. You can override this in your local `.env.example` file._
+
+### 9. Pull Requests that contain a Database Migration
+
+Try to only have 1 extra migration folder per PR. If you have to refactor your schema multiple times you can end up with a migration for each refactor.
+
+Additional Resources
+- Prisma Seed Documentation: https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding
+
+### 10. Swagger
+
+```
+
+http://localhost:${port}/api
+
+```
+
+## Troubleshooting
